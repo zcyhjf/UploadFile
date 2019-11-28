@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foxhis.getfile.dao.IpMapper">
+    <resultMap id="BaseResultMap" type="com.foxhis.getfile.entity.Ip">
+        <id column="hotelid" jdbcType="VARCHAR" property="hotelid"/>
+        <id column="tenantid" jdbcType="VARCHAR" property="tenantid"/>
+        <result column="date" jdbcType="TIMESTAMP" property="date"/>
+        <result column="ip" jdbcType="VARCHAR" property="ip"/>
+    </resultMap>
+
+    <select id="getIp" resultMap="BaseResultMap" parameterType="java.util.Map">
+        SELECT ip FROM ip_record WHERE hotelid = #{hotelid} AND tenantid = #{tenantid}
+    </select>
+
+</mapper>
